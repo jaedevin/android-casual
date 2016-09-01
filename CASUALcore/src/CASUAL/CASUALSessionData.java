@@ -110,6 +110,21 @@ public class CASUALSessionData {
     public static void setTempFolderPrefix(String aTempFolderPrefix) {
         tempFolderPrefix = aTempFolderPrefix;
     }
+    private static String windowsDLL = "";
+    
+    /**
+     * @return the windowsDLL
+     */
+    public static String getWindowsDLL() {
+        return windowsDLL;
+    }
+
+    /**
+     * @param aWindowsDLL the windowsDLL to set
+     */
+    public static void setWindowsDLL(String aWindowsDLL) {
+        windowsDLL = aWindowsDLL;
+    }
     /**
      * true if debugMode. Do not send logs in debug mode. We create too many
      * errors, thanks.

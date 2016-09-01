@@ -1,0 +1,4 @@
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\bin\WindowsSerial32\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\WindowsSerial32\Interop.MMC20.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\WindowsSerial32\WindowsSerial.csproj.ResolveComReference.cache
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\WindowsSerial32\WindowsSerial.dll

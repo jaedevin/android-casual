@@ -1,0 +1,13 @@
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerial\WindowsSerial\bin\Debug\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerial\WindowsSerial\bin\Debug\WindowsSerial.pdb
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerial\WindowsSerial\obj\Debug\Interop.MMC20.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerial\WindowsSerial\obj\Debug\WindowsSerial.csproj.ResolveComReference.cache
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerial\WindowsSerial\obj\Debug\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerial\WindowsSerial\obj\Debug\WindowsSerial.pdb
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerial\WindowsSerial\obj\Debug\WindowsSerial.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\bin\Debug\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\bin\Debug\WindowsSerial.pdb
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\Debug\Interop.MMC20.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\Debug\WindowsSerial.csproj.ResolveComReference.cache
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\Debug\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\Debug\WindowsSerial.pdb

@@ -1,0 +1,21 @@
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.pdb
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.pdb
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.pdb
+C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.pdb
+C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.dll
+C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.pdb
+C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.pdb
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.pdb
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.dll
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.pdb
+C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll.config
