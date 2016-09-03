@@ -17,3 +17,9 @@ C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\
 C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\Release\WindowsSerial.csproj.ResolveComReference.cache
 C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\Release\WindowsSerial.dll
 C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerial\WindowsSerial\obj\Release\WindowsSerial.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\Release\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\Release\WindowsSerial.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\Release\Interop.MMC20.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\Release\WindowsSerial.csproj.ResolveComReference.cache
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\Release\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\Release\WindowsSerial.pdb

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WindowsSerialJavaInterface;
+
 namespace WindowsSerialTest
 {
     [TestClass]
@@ -8,7 +9,8 @@ namespace WindowsSerialTest
     {
         [TestMethod]
         public void TestGetComPorts() {
-            String[] ports = WindowsSerial.getComPorts().Split(new String[] { ";;;" }, StringSplitOptions.None);
+            String portlist = WindowsSerial.getComPorts();
+            String[] ports= portlist.Split(new string[] { ";;;" }, StringSplitOptions.None);
             System.Diagnostics.Debug.Write("got serial ports");
             foreach (string s in ports)
             {
@@ -20,7 +22,7 @@ namespace WindowsSerialTest
         public void TestSendData() {
             String[] ports = WindowsSerial.getComPorts().Split(new String[] { ";;;" }, StringSplitOptions.None); for (int i = 0; i < 10; i++)
             {
-                String dataReceived = WindowsSerial.sendData(ports[0], "\r\nAT\r\nAT\r\n");
+                String dataReceived = WindowsSerial.sendData(ports[1], "\r\nAT\r\nAT\r\n");
                 System.Diagnostics.Debug.WriteLine("Got data:" + dataReceived);
                 Assert.IsTrue(dataReceived.Contains("OK"));
             }
@@ -30,14 +32,14 @@ namespace WindowsSerialTest
         public void TestSendDataWithExpectation() {
             String[] ports = WindowsSerial.getComPorts().Split(new String[] { ";;;" }, StringSplitOptions.None); for (int i = 0; i < 30; i++)
             {
-                Assert.IsTrue(WindowsSerial.sendDataToPort(ports[0], "\r\nAT\r\n", "OK"));
+                Assert.IsTrue( WindowsSerial.sendDataToPort(ports[1], "\r\nAT\r\n", "OK"));
             }
         }
         [TestMethod]
         public void testConnection() {
 
             String[] ports = WindowsSerial.getComPorts().Split(new String[] { ";;;" }, StringSplitOptions.None);
-            Assert.IsTrue(WindowsSerial.checkPortStatus(ports[0]));
+            Assert.IsTrue(WindowsSerial.checkPortStatus(ports[2]));
             for (int i = 0; i < 30; i++)
             {
                 System.Diagnostics.Debug.Write(i + ";");
@@ -46,11 +48,13 @@ namespace WindowsSerialTest
         }
         [TestMethod]
         public void testGetInformation() {
+            string ports = WindowsSerial.getComPorts();
+            Console.WriteLine(ports);
 
-
-            String[] ports = WindowsSerial.getComPorts().Split(new String[] { ";;;" }, StringSplitOptions.None);
-            String s = WindowsSerial.getPortInfoz(ports[1]);
-            Console.Write(s);
+            string[] portArray=ports.Split(new string[] { ";;;" }, StringSplitOptions.RemoveEmptyEntries);
+            for (int i= 0; i < portArray.Length; i++) { 
+               Console.WriteLine(WindowsSerial.getPortInfoz(portArray[i]));
+            }
 
         }
     }

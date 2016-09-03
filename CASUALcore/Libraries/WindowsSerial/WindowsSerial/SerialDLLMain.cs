@@ -1,4 +1,10 @@
-﻿using Microsoft.Win32;
+﻿/**
+*
+* To build this properly use the package manager console
+* PM> Install-Package UnmanagedExports
+*/
+
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,16 +13,14 @@ using System.Management;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Runtime.InteropServices;
-using System.Collections.Generic;
 using System.Linq;
-using System.IO.Ports;  
 
 namespace WindowsSerialJavaInterface
 {
 
     interface InterfaceSerialPort
     {
-        String[] getComPorts();
+        String getComPorts();
         Boolean checkPortStatus(String port);
         Boolean sendDataToPort(String port, String data, String expectedValue);
         String sendData(String port, String data);
@@ -25,10 +29,11 @@ namespace WindowsSerialJavaInterface
     public class WindowsSerial
     {
         static SerialPort serialPort;
+
         static int TIMEOUT = 500;
         static String dataReceived = "";
         static String portname = "";
-        static AutoResetEvent readerWait=new AutoResetEvent(false);
+        static AutoResetEvent readerWait = new AutoResetEvent(false);
 
         /**
          * returns available com ports
@@ -39,20 +44,14 @@ namespace WindowsSerialJavaInterface
             portname = "";
             string[] ports = System.IO.Ports.SerialPort.GetPortNames();
             List<String> l = new List<String>();
-            // Display each port name to the System.Diagnostics.Debug. 
-            foreach (string port in ports)
-            {
-                System.Diagnostics.Debug.Write(port);
-                if (validatePort(port))
-                {
-                    l.Add(port);
-                }
-            }
+
 
             String returnvalue = "";
-            foreach (String s in l.ToArray())
+            foreach (String s in ports)
             {
-                returnvalue = returnvalue + s + ";;;";
+                if (s.Length > 0) { 
+                    returnvalue = returnvalue + s.Replace("\0", "") + ":;;;";
+                }
             }
             return returnvalue;
         }
@@ -62,7 +61,7 @@ namespace WindowsSerialJavaInterface
          */
         [RGiesecke.DllExport.DllExport("checkPortStatus", CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static bool checkPortStatus(string port)
+        public static bool checkPortStatus(String port)
         {
             return sendDataToPort(port, "AT\n", "OK");
         }
@@ -70,13 +69,17 @@ namespace WindowsSerialJavaInterface
         /**
          * returns true if expected value is found in call
          */
-        [RGiesecke.DllExport.DllExport("sendDataToPort", CallingConvention = CallingConvention.Cdecl)]
-        [return: MarshalAs(UnmanagedType.Bool)]
+
+        //[RGiesecke.DllExport.DllExport("sendDataToPort", CallingConvention = CallingConvention.Cdecl)]
+       // [return: MarshalAs(UnmanagedType.Bool)]
+
         public static bool sendDataToPort(string port, string data, string expectedValue)
         {
-
             setUpPortIfNeeded(port);
             serialPort.Open();
+
+            Console.WriteLine("test");
+
             Thread t = new Thread(() => DataReceivedHandler(serialPort, expectedValue));
             t.Start();
             readerWait.WaitOne();
@@ -106,7 +109,7 @@ namespace WindowsSerialJavaInterface
         [RGiesecke.DllExport.DllExport]
         public static string getPortInfo(String comPort)
         {
-            return "";
+            return getPortInfoz(comPort);
         }
 
 
@@ -120,69 +123,85 @@ namespace WindowsSerialJavaInterface
             setUpPortIfNeeded(port);
             serialPort.Open();
 
-            Thread t = new Thread(() => DataReceivedHandler(serialPort, "ADAM OUTLER - will never appear in data"));
+            Thread t = new Thread(() => DataReceivedHandler(serialPort, "ADAM OUTLER - will never appear in data so it is a good string to use to not expect anything"));
             t.Start();
             readerWait.WaitOne();
-            
+
             data = data.Replace("\n", serialPort.NewLine);
             serialPort.WriteLine(data);
             t.Join();
             //serialPort.Close();
             System.Diagnostics.Debug.WriteLine(dataReceived);
             return dataReceived;
+        }    
+        /**
+         * Sends bytes returns bytes. 
+         */
+        [RGiesecke.DllExport.DllExport]
+        public static char[] sendData(string port, byte[] data)
+        {
+
+            setUpPortIfNeeded(port);
+            serialPort.Open();
+
+            Thread t = new Thread(() => DataReceivedHandler(serialPort, "ADAM OUTLER - will never appear in data so it is a good string to use to not expect anything"));
+            t.Start();
+            readerWait.WaitOne();
+            serialPort.Write(data,0,data.Length);
+            t.Join();
+            //serialPort.Close();
+            System.Diagnostics.Debug.WriteLine(dataReceived);
+            return dataReceived.ToCharArray();
         }
 
 
         static void setUpPortIfNeeded(String portName)
         {
+            
             dataReceived = "";
-
+            
             if (portname.Equals("") || !portName.Equals(portname))
             {
-                serialPort = new System.IO.Ports.SerialPort(portName);
+              //  portName = portName.Replace(":", "");
+                serialPort = new System.IO.Ports.SerialPort(portName.Replace(":",""));
                 getSerialProperties(serialPort);
                 WindowsSerial.portname = portName;
             }
         }
 
 
-        public static String getPortInfoz(String port){
-           
-            String result="";
-             using (var searcher = new ManagementObjectSearcher("SELECT * FROM WIN32_SerialPort"))
+        public static String getPortInfoz(String port)
         {
-            string[] portnames = SerialPort.GetPortNames();
-            var ports = searcher.Get().Cast<ManagementBaseObject>().ToList();
-            var tList = (from n in portnames join p in ports on n equals p["DeviceID"].ToString() select n + " - " + p["Caption"]).ToList();
 
-            foreach (string s in tList)
+            port = port.Replace(":", "");
+            foreach (COMPortInfo comPort in COMPortInfo.GetCOMPortsInfo())
             {
-                result = result + s;
-            }
         
-                return result;
+                if (comPort.Name.Equals(port))
+                {
+                    return (string.Format("{0} – {1}", comPort.Name, comPort.Description + validatePort(port)));
+                }
             }
+            
+            return validatePort(port) ;
 
-            // pause program execution to review results...
-            Console.WriteLine("Press enter to exit");
-            Console.ReadLine();
+
         }
+      
 
-        static Boolean validatePort(String port)
+
+        static string validatePort(String port)
         {
-            var query = string.Format("SELECT * FROM Win32_PnPEntity WHERE Name LIKE '%{0}%' AND Manufacturer LIKE 'FTDI' ", port);
+            var query = string.Format("SELECT * FROM Win32_PnPEntity WHERE Name LIKE '%{0}%' ", port);
             using (var searcher = new ManagementObjectSearcher(query))
             {
                 ManagementObjectCollection objectCollection = searcher.Get();
                 foreach (ManagementBaseObject managementBaseObject in objectCollection)
                 {
-                    if (managementBaseObject.ToString().Contains("FTDIBUS"))
-                    {
-                        return true;
-                    }
+                    return managementBaseObject.ToString();
                 }
             }
-            return false;
+            return "No PNP data available";
         }
 
         static void getSerialProperties(SerialPort sp)
@@ -193,7 +212,8 @@ namespace WindowsSerialJavaInterface
 
             //9600,n,8,1
             Microsoft.Win32.RegistryKey myKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Ports");
-            String[] portarray = myKey.GetValue(sp.PortName + ":").ToString().Split(',');
+
+           
             //sp.BaudRate = int.Parse(portarray[0]);
             sp.BaudRate = 115200;
             //sp.DataBits = int.Parse(portarray[2].ToUpperInvariant());
@@ -202,7 +222,7 @@ namespace WindowsSerialJavaInterface
             sp.StopBits = StopBits.One;
 
             sp.RtsEnable = false;
-           
+
 
             Parity p;
             p = Parity.None;
@@ -274,7 +294,7 @@ namespace WindowsSerialJavaInterface
                 }
                 catch (TimeoutException ex)
                 {
-                    System.Diagnostics.Debug.WriteLine("Timeout");
+                    if (ex !=null) System.Diagnostics.Debug.WriteLine("Timeout");
                     try
                     {
                         dataReceived = dataReceived + sp.ReadLine();
@@ -285,7 +305,7 @@ namespace WindowsSerialJavaInterface
                     }
                     catch (TimeoutException exagain)
                     {
-                        System.Diagnostics.Debug.WriteLine("Timeout");
+                        if (exagain != null) System.Diagnostics.Debug.WriteLine("Timeout");
 
                         continueReading = false;
                     }
@@ -301,9 +321,84 @@ namespace WindowsSerialJavaInterface
             sp.Close();
             foreach (char c in dataReceived.ToCharArray())
             {
-               Console.Write(" 0x"+(int)c);
+                Console.Write(" 0x" + (int)c);
             }
         }
 
     }
+
+
+
+    /**
+    * Process Connection Code from https://dariosantarelli.wordpress.com/2010/10/18/c-how-to-programmatically-find-a-com-port-by-friendly-name/
+    */
+    internal class ProcessConnection
+    {
+
+        public static ConnectionOptions ProcessConnectionOptions()
+        {
+            ConnectionOptions options = new ConnectionOptions();
+            options.Impersonation = ImpersonationLevel.Impersonate;
+            options.Authentication = AuthenticationLevel.Default;
+            options.EnablePrivileges = true;
+            return options;
+        }
+
+        public static ManagementScope ConnectionScope(string machineName, ConnectionOptions options, string path)
+        {
+            ManagementScope connectScope = new ManagementScope();
+            connectScope.Path = new ManagementPath(@"\\" + machineName + path);
+            connectScope.Options = options;
+            connectScope.Connect();
+            return connectScope;
+        }
+    }
+
+    public class COMPortInfo
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+        public COMPortInfo() { }
+
+        public static List<COMPortInfo> GetCOMPortsInfo()
+        {
+            List<COMPortInfo> comPortInfoList = new List<COMPortInfo>();
+
+            ConnectionOptions options = ProcessConnection.ProcessConnectionOptions();
+            ManagementScope connectionScope = ProcessConnection.ConnectionScope(Environment.MachineName, options, @"\root\CIMV2");
+
+            ObjectQuery objectQuery = new ObjectQuery("SELECT * FROM Win32_PnPEntity WHERE ConfigManagerErrorCode = 0");
+            ManagementObjectSearcher comPortSearcher = new ManagementObjectSearcher(connectionScope, objectQuery);
+
+            using (comPortSearcher)
+            {
+                string caption = null;
+                foreach (ManagementObject obj in comPortSearcher.Get())
+                {
+                    if (obj != null)
+                    {
+                        object captionObj = obj["Caption"];
+                        if (captionObj != null)
+                        {
+                            caption = captionObj.ToString();
+                            if (caption.Contains("(COM"))
+                            {
+                                COMPortInfo comPortInfo = new COMPortInfo();
+                                comPortInfo.Name = caption.Substring(caption.LastIndexOf("(COM")).Replace("(", string.Empty).Replace(")",string.Empty);
+                                comPortInfo.Description = caption;
+                                comPortInfoList.Add(comPortInfo);
+                            }
+                            if (caption.ToLower().Contains("modem"))
+                            {
+                                //here we can find another way to get information. 
+                            }
+                        }
+                    }
+                }
+            }
+            return comPortInfoList;
+        }
+    }
+
 }

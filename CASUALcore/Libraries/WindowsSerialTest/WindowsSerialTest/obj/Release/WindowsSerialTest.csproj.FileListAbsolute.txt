@@ -1,21 +1,8 @@
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidocbox\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.pdb
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.dll
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll.config
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll.config
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerialTest.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Release\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Release\WindowsSerialTest.pdb

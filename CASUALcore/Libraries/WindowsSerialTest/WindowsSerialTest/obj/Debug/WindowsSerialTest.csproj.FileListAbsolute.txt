@@ -1,19 +1,11 @@
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.csprojResolveAssemblyReference.cache
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.CodeAnalysisLog.xml
-C:\Users\Adam\Documents\NetBeansProjects\imeidockbox\MobileTechVideos Assistant\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.lastcodeanalysissucceeded
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.config
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.pdb
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.CodeAnalysisLog.xml
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.lastcodeanalysissucceeded
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.dll
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.pdb
-C:\Users\Adam\Documents\NetBeansProjects\serverapp\IMEIDocBox\lib\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.csprojResolveAssemblyReference.cache
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.config
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.CodeAnalysisLog.xml
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.lastcodeanalysissucceeded
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.csprojResolveAssemblyReference.cache
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.pdb
