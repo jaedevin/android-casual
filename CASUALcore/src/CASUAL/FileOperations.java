@@ -21,6 +21,8 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -103,7 +105,7 @@ public class FileOperations {
     /**
      * takes a path and a name returns qualified path to file
      *
-     * @param PathToSearch  path to search
+     * @param PathToSearch path to search
      * @param FileName filename to locate
      * @return absolute path to folder
      */
@@ -133,7 +135,7 @@ public class FileOperations {
     /**
      * verifies file/folder exists returns a boolean value if the file exists
      *
-     * @param file  file to check
+     * @param file file to check
      * @return true if exists
      */
     public boolean verifyExists(String file) {
@@ -174,11 +176,44 @@ public class FileOperations {
     }
 
     /**
+     * Writes a byte array to a file or throws an exception.
+     *
+     * @param file the target file
+     * @param data the data to be written
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public void writeBytesToFile(String file, byte[] data) throws FileNotFoundException, IOException {
+        FileOutputStream fos = new FileOutputStream(file);
+        fos.write(data);
+    }
+
+    /**
+     * Reads bytes from a file into a byte array
+     *
+     * @param file the file to be read from
+     * @return an array representing the data read from the file in byte format.
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public byte[] readBytesFromFile(String file) throws FileNotFoundException, IOException {
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        int buffer = 4096;
+        while (bis.available() > 0) {
+            buffer = (bis.available() > 4096 ? 4096 : bis.available());
+            baos.write(bis.read(new byte[buffer]));
+        }
+        bis.close();
+        return baos.toByteArray();
+    }
+
+    /**
      * writes a stream to a destination file
      *
      * @param stream Stream to be written
      * @param destination output file
-     * @throws FileNotFoundException  when destination cannot be created
+     * @throws FileNotFoundException when destination cannot be created
      * @throws IOException with permission problems
      */
     public void writeStreamToFile(BufferedInputStream stream, String destination) throws FileNotFoundException, IOException {
@@ -313,7 +348,7 @@ public class FileOperations {
     /**
      * copies a file from a source to a destination
      *
-     * @param sourceFile  file to copy
+     * @param sourceFile file to copy
      * @param destFile destination to copy file (including filename)
      * @throws IOException when permission problem exists
      */
@@ -360,7 +395,7 @@ public class FileOperations {
      * copies a file from a string path to a string path returns a boolean if
      * completed
      *
-     * @param FromFile  file to copy
+     * @param FromFile file to copy
      * @param ToFile destination to copy to
      * @return true if completed
      */
@@ -519,23 +554,21 @@ public class FileOperations {
         return childOf;
     }
 
-    public ArrayList<String> listRecursive(String folder){
-        ArrayList<String> filesList=new ArrayList<String>();
-        File[] files=new File(folder).listFiles();
-        for (File file:files){
-            if (file.isDirectory()){
+    public ArrayList<String> listRecursive(String folder) {
+        ArrayList<String> filesList = new ArrayList<String>();
+        File[] files = new File(folder).listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
                 filesList.addAll(listRecursive(file.getAbsolutePath()));
             } else {
                 filesList.add(file.getAbsolutePath());
             }
         }
-        
-        
+
         return filesList;
-        
+
     }
-    
-    
+
     /**
      *
      * @param sourceFile from locaton
