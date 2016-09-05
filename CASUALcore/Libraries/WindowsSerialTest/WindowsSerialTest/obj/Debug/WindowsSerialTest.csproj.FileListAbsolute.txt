@@ -1,9 +1,0 @@
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll.config
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerialTest.pdb
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.csprojResolveAssemblyReference.cache
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\Debug\WindowsSerialTest.pdb
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\Debug\WindowsSerial.pdb

@@ -16,6 +16,7 @@
  */
 package CASUAL.communicationstools.serial_interface;
 
+import CASUAL.CASUALTools;
 import CASUAL.Log;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -23,6 +24,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.junit.Assume.assumeTrue;
 
 /**
  *
@@ -30,7 +32,11 @@ import static org.junit.Assert.*;
  */
 public class WindowsSerialTest {
     
+    final static String MODEM="COM6:";
+    final static String SERIAL="COM5:";
+    CASUALTools ct=new CASUALTools();
     public WindowsSerialTest() {
+       assumeTrue(!java.awt.GraphicsEnvironment.isHeadless());
     }
     
     @BeforeClass
@@ -57,22 +63,21 @@ public class WindowsSerialTest {
         System.out.println("main");
         String[] args = null;
         WindowsSerial.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
      * Test of getComPorts method, of class WindowsSerial.
      */
     @Test
-    public void testGetComPorts() {
+    public void testGetComPortsInformation() {
         System.out.println("getComPorts");
         WindowsSerial instance = new WindowsSerial();
-        
         String[] results = instance.getComPorts();
         assert(results.length>0);
         for (String result:results){
             Log.level3Verbose("Found Com Port: "+result);
+            Log.level3Verbose(instance.getPortInfo(result));
         }
         
     }
@@ -83,13 +88,12 @@ public class WindowsSerialTest {
     @Test
     public void testCheckPortStatus() {
         System.out.println("checkPortStatus");
-        String port = "";
+        String port = MODEM;
         WindowsSerial instance = new WindowsSerial();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.checkPortStatus(port);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -98,15 +102,14 @@ public class WindowsSerialTest {
     @Test
     public void testSendDataToPort() {
         System.out.println("sendDataToPort");
-        String port = "";
-        String data = "";
-        String expectedValue = "";
+        String port = SERIAL;
+        String data = "\r\rAT\r";
+        String expectedValue = "OK";
         WindowsSerial instance = new WindowsSerial();
-        boolean expResult = false;
-        boolean result = instance.sendDataToPort(port, data, expectedValue);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = "OK";
+        final boolean result = instance.sendDataToPort(port, data, expectedValue);
+        assert( result);
+
     }
 
     /**
@@ -115,14 +118,60 @@ public class WindowsSerialTest {
     @Test
     public void testSendData() {
         System.out.println("sendData");
-        String port = "";
-        String data = "";
+        String port = MODEM;
+        String data = "\r\r\r\rAT\r";
         WindowsSerial instance = new WindowsSerial();
-        String expResult = "";
+        String expResult = "OK";
         String result = instance.sendData(port, data);
-        assertEquals(expResult, result);
+        assert( result.contains(expResult));
+        
+
+    }
+
+    /**
+     * Test of getComPorts method, of class WindowsSerial.
+     */
+    @Test
+    public void testGetComPorts() {
+        System.out.println("getComPorts");
+        WindowsSerial instance = new WindowsSerial();
+        int expResult = 0;
+        String[] result = instance.getComPorts();
+        assert( result.length>expResult);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    
+    }
+
+    /**
+     * Test of getPortInfo method, of class WindowsSerial.
+     */
+    @Test
+    public void testGetPortInfo() {
+        System.out.println("getPortInfo");
+        
+        WindowsSerial instance = new WindowsSerial();
+        String[] ports = instance.getComPorts();
+        for (String port : ports){
+            assert(instance.getPortInfo(port).length()>0);
+        }
+    }
+
+    /**
+     * Test of sendBinData method, of class WindowsSerial.
+     */
+    @Test
+    public void testSendBinData() {
+        System.out.println("sendBinData");
+        
+        byte[] data = new byte[] { (byte)0x7e, (byte)0x00, (byte)0x78, (byte)0xf0, (byte)0x7e };
+        byte[] expected=new byte[]{ 0x7e };
+        WindowsSerial instance = new WindowsSerial();
+        String port =SERIAL;
+        int expResult = 1;
+        byte[] result = instance.sendBinData(port, data,expected);
+        
+        assert( result.length>expResult);
+
     }
     
 }

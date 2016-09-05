@@ -9,8 +9,14 @@ import com.sun.jna.Native;
 import CASUAL.Log;
 import CASUAL.OSTools;
 import CASUAL.CASUALSessionData;
+import CASUAL.FileOperations;
 import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jdk.nashorn.internal.objects.NativeString;
 
 /**
  *
@@ -24,15 +30,14 @@ public class WindowsSerial implements InterfaceSerialPort {
             
             String getComports();
             String getPortInfo(String port);
-            boolean checkPortStatus(String port);
-            Boolean sendDataToPort(String port, String data, String expectedValue);
+            String sendDataToPort(String port, String data);
             String sendData(String port, String data);
-            byte[] sendBinData(String port, byte[] data);
+            String sendBinData(String data);
             
    }
     
     InterfaceWindowsSerialPort windows;
-
+     static String[] splitString = { "-=-=-=-=-=-=-=-=-" };
     
 
     
@@ -41,15 +46,20 @@ public class WindowsSerial implements InterfaceSerialPort {
         WindowsSerial ws=new WindowsSerial();
         
         String[] ports=ws.getComPorts();
-        for (String port: ports){
+       /* for (String port: ports){
             System.out.println("java port:"+port);
             System.out.println("port info:"+ws.getPortInfo(port));
         }
       
         System.out.println("received data:"+ws.sendData(ports[1],"AT\r"));
-        System.out.println("received data:"+ws.sendDataToPort(ports[1],"AT\r","OK"));
+        System.out.println("received data:"+ws.sendDataToPort(ports[1],"AT\r","OK"));*/
           ws.checkPortStatus(ports[1]);
-         System.out.println("received data:"+Arrays.toString(ws.sendBinData(ports[2],new byte[]{ 0x7e ,0x0a ,0x63 ,0x74 ,0x7e })));
+
+         byte[] bytes=ws.sendBinData(ports[2],new byte[]{ 0x7e ,0x0a ,0x63 ,0x74 ,0x7e },new byte[]{ 0x7e });
+         StringBuilder sb=new StringBuilder();
+         for (byte b:bytes){
+             sb.append((char)b);
+         }         
     }
 
     @Override
@@ -65,10 +75,10 @@ public class WindowsSerial implements InterfaceSerialPort {
         File f = new File(CASUALSessionData.getWindowsDLL());
         if (OSTools.isWindows()){
             if (OSTools.isWindows64Arch()){
-                windows = (InterfaceWindowsSerialPort) Native.loadLibrary("CASUAL/communicationstools/serial_interface/resources/WindowsSerial32.dll", InterfaceWindowsSerialPort.class);
+                windows = (InterfaceWindowsSerialPort) Native.loadLibrary("CASUAL/communicationstools/serial_interface/resources/CASUALCommunicationsDLL64.dll", InterfaceWindowsSerialPort.class);
   
             } else {
-                windows = (InterfaceWindowsSerialPort) Native.loadLibrary("/CASUAL/communicationstools/serial_interface/resources/WindowsSerial32.dll", InterfaceWindowsSerialPort.class);
+                windows = (InterfaceWindowsSerialPort) Native.loadLibrary("/CASUAL/communicationstools/serial_interface/resources/CASUALCommunicationsDLL86.dll", InterfaceWindowsSerialPort.class);
             }
         }
     }
@@ -77,19 +87,35 @@ public class WindowsSerial implements InterfaceSerialPort {
         return windows.getPortInfo(port);
     }
     
-    public byte[] sendBinData(String port, byte[] data){
-        return windows.sendBinData(port, data);
+    public byte[] sendBinData(String port, byte[] data, byte[] expectation){
+        try {
+            FileOperations fo = new FileOperations();
+            String dataFile=File.createTempFile("aaaa", "").getAbsolutePath();
+            String expectedFile=File.createTempFile("aaaa", "").getAbsolutePath();
+            fo.writeBytesToFile(dataFile,data);
+            fo.writeBytesToFile(expectedFile, expectation);
+            String returnfile=windows.sendBinData(port+ splitString[0]+dataFile+splitString[0]+expectedFile);
+            return fo.readBytesFromFile(returnfile);
+
+        } catch (IOException ex) {
+           Log.errorHandler(ex);
+           return null;
+        }
+        
+          
+    }
+
+  
+    @Override
+    public boolean checkPortStatus(String port) {
+        return this.sendDataToPort(port, "AT\r\nAT\nAT\r\n", "OK");
         
     }
 
     @Override
-    public boolean checkPortStatus(String port) {
-        return windows.checkPortStatus(port)==true;
-    }
-
-    @Override
     public boolean sendDataToPort(String port, String data, String expectedValue) {
-        return windows.sendDataToPort(port, data, expectedValue);
+        final boolean retval= windows.sendDataToPort(port, data+splitString[0]+ expectedValue).contains("true");
+        return retval;
     }
 
     @Override
