@@ -22,37 +22,49 @@ import java.util.logging.Logger;
  */
 public class PosixSerialConnectivity {
 
-    private static final AtomicBoolean stopRead = new AtomicBoolean(false);
-    private static final Object readerWait = new Object();
+    private static final AtomicBoolean STOPREAD = new AtomicBoolean(false);
+    private static final Object READERWAIT = new Object();
     private static String returnValue = "";
-    final static String ack = "OK";
-    final static int maxDuration = 5000;
+    final static String ACK = "OK";
+    final static int MAXDURATION = 5000;
 
     private static void resetReturnValue() {
         returnValue = "";
     }
 
-    synchronized static private String writeData(String file, String dataToSend) throws FileNotFoundException, IOException, InterruptedException {
+     synchronized static private String writeData(String file, String dataToSend) throws FileNotFoundException, IOException, InterruptedException {
         File f = new File(file);
         BufferedInputStream bis=new BufferedInputStream(new FileInputStream(file));
         Thread t = initializeReader(bis);
         t.setName("reader Thread");
-        FileOutputStream fos = new FileOutputStream(f);
-       resetReturnValue();
-
-        t.start();
-        Thread.sleep(100);
-        fos.write((dataToSend+"\n").getBytes());
-        synchronized (readerWait) {
-            readerWait.wait(maxDuration);
+        try (FileOutputStream fos = new FileOutputStream(f)) {
+            resetReturnValue();
+            
+            t.start();
+            doSleep();
+            fos.write((dataToSend+"\n").getBytes());
+            waitForReader();
         }
-        fos.close();
-        stopRead.set(true);
+        STOPREAD.set(true);
         return returnValue;
     }
 
+    private static void waitForReader() throws InterruptedException {
+        synchronized (READERWAIT) {
+            READERWAIT.wait(MAXDURATION);
+        }
+    }
+
+    static void doSleep(){
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PosixSerialConnectivity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     synchronized static private Thread initializeReader(BufferedInputStream bis) {
-        stopRead.set(false);
+        STOPREAD.set(false);
         Thread t = getReader(bis);
         t.setDaemon(true);
         t.setName("Reader Thread");
@@ -63,20 +75,20 @@ public class PosixSerialConnectivity {
     synchronized static private Thread getReader(final BufferedInputStream bis) {
         return new Thread(() -> {
             try {
-                while (!stopRead.get()) {
+                while (!STOPREAD.get()) {
                     if (bis.available() > 0) {
-                        synchronized (readerWait) {
+                        synchronized (READERWAIT) {
                             returnValue = returnValue + (char) bis.read();
-                            if (returnValue.contains(ack)) {
-                                stopRead.set(true);
-                                readerWait.notify();
+                            if (returnValue.contains(ACK)) {
+                                STOPREAD.set(true);
+                                READERWAIT.notify();
                                
                             }
                         }
                     }
 
                 }
-                stopRead.set(false);
+                STOPREAD.set(false);
             } catch (IOException ex) {
                 returnValue = "IOEXCEPTION!";
             } finally {

@@ -1,0 +1,11 @@
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\WindowsSerialTest.dll.config
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\WindowsSerialTest.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\WindowsSerialTest.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\x86\Release\WindowsSerialTest.csprojResolveAssemblyReference.cache
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\x86\Release\WindowsSerialTest.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\obj\x86\Release\WindowsSerialTest.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\JavaTypeProvider.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\FSharp.Core.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerialTest\WindowsSerialTest\bin\x86\Release\FSharp.Core.xml

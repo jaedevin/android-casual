@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Targets>
+  <Target Name="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Debug\WindowsSerial.dll">
+   <Modules>
+    <Module Name="windowsserial.dll">
+     <Messages>
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'WindowsSerial.dll' with a strong name key.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Warning">Because assembly 'WindowsSerial.dll' contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="ComportInfo" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">'ComportInfo' should be declared inside a namespace.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#GetCOMPortsInfo()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="427">Change 'List&lt;ComportInfo&gt;' in 'ComportInfo.GetCOMPortsInfo()' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+            <Message Id="COM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="427">Correct the casing of 'COM' in member name 'ComportInfo.GetCOMPortsInfo()' by changing it to 'Com'.</Issue>
+            </Message>
+            <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="453">Because the behavior of 'string.ToLower()' could vary based on the current user's locale settings, replace this call in 'ComportInfo.GetCOMPortsInfo()' with a call to 'string.ToLower(CultureInfo)'. If the result of 'string.ToLower(CultureInfo)' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="System.String.LastIndexOf(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="449">Because the behavior of 'string.LastIndexOf(string)' could vary based on the current user's locale settings, replace this call in 'ComportInfo.GetCOMPortsInfo()' with a call to 'string.LastIndexOf(string, StringComparison)'. If the result of 'string.LastIndexOf(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="427">Change 'ComportInfo.GetCOMPortsInfo()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ProcessConnection" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+           <Issue Certainty="75" Level="Warning">'ProcessConnection' is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="WindowsSerialJavaInterface">
+       <Types>
+        <Type Name="WindowsSerialCSharp" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ComVisibleTypesShouldBeCreatable" Category="Microsoft.Interoperability" CheckId="CA1409" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+           <Issue Certainty="90" Level="Error">Provide a public default constructor for 'WindowsSerialCSharp' if it should be COM-creatable or mark the type as ComVisible(false).</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#checkPortStatus(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidStaticMembersInComVisibleTypes" Category="Microsoft.Interoperability" CheckId="CA1407" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="25" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="74">Consider whether the absence of 'WindowsSerialCSharp.checkPortStatus(string)' adversely impacts functionality for COM clients.</Issue>
+            </Message>
+            <Message Id="check" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="74">Correct the casing of 'check' in member name 'WindowsSerialCSharp.checkPortStatus(string)' by changing it to 'Check'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DataByteHandler(System.IO.Ports.SerialPort,System.Byte[])" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Console.Write(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="381">Method 'WindowsSerialCSharp.DataByteHandler(SerialPort, byte[])' passes a literal string as parameter 'value' of a call to 'Console.Write(string)'. Retrieve the following string(s) from a resource table instead: " 0x".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="377">Method 'WindowsSerialCSharp.DataByteHandler(SerialPort, byte[])' passes a literal string as parameter 'value' of a call to 'Console.Write(string)'. Retrieve the following string(s) from a resource table instead: "R".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="340">Method 'WindowsSerialCSharp.DataByteHandler(SerialPort, byte[])' passes a literal string as parameter 'value' of a call to 'Console.Write(string)'. Retrieve the following string(s) from a resource table instead: "r".</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DataReceivedHandler(System.IO.Ports.SerialPort,System.String)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="System.Console.Write(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="279">Method 'WindowsSerialCSharp.DataReceivedHandler(SerialPort, string)' passes a literal string as parameter 'value' of a call to 'Console.Write(string)'. Retrieve the following string(s) from a resource table instead: "ReadStart".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="317">Method 'WindowsSerialCSharp.DataReceivedHandler(SerialPort, string)' passes a literal string as parameter 'value' of a call to 'Console.Write(string)'. Retrieve the following string(s) from a resource table instead: "ReadStop".</Issue>
+            </Message>
+            <Message Id="ReadStart" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="279">Correct the spelling of the unrecognized token 'ReadStart' in the literal '"ReadStart"'.</Issue>
+            </Message>
+            <Message Id="ReadStop" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="317">Correct the spelling of the unrecognized token 'ReadStop' in the literal '"ReadStop"'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getComports()" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidStaticMembersInComVisibleTypes" Category="Microsoft.Interoperability" CheckId="CA1407" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="25" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="51">Consider whether the absence of 'WindowsSerialCSharp.getComports()' adversely impacts functionality for COM clients.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="51">Correct the casing of 'get' in member name 'WindowsSerialCSharp.getComports()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="51">Change 'WindowsSerialCSharp.getComports()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getPortInfo(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidStaticMembersInComVisibleTypes" Category="Microsoft.Interoperability" CheckId="CA1407" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="25" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="173">Consider whether the absence of 'WindowsSerialCSharp.getPortInfo(string)' adversely impacts functionality for COM clients.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="173">Correct the casing of 'get' in member name 'WindowsSerialCSharp.getPortInfo(string)' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="179">Because the behavior of 'string.Format(string, object, object)' could vary based on the current user's locale settings, replace this call in 'WindowsSerialCSharp.getPortInfo(string)' with a call to 'string.Format(IFormatProvider, string, params object[])'. If the result of 'string.Format(IFormatProvider, string, params object[])' will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Issue>
+            </Message>
+            <Message Id="0" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="173">In externally visible method 'WindowsSerialCSharp.getPortInfo(string)', validate parameter 'port' before using it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getUIDVID(System.String)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="261">'WindowsSerialCSharp.getUIDVID(string)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+            <Message Id="aszToken" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="263">'WindowsSerialCSharp.getUIDVID(string)' declares a variable, 'aszToken', of type 'string[]', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+            <Message Id="System.String.IndexOf(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="264">Because the behavior of 'string.IndexOf(string)' could vary based on the current user's locale settings, replace this call in 'WindowsSerialCSharp.getUIDVID(string)' with a call to 'string.IndexOf(string, StringComparison)'. If the result of 'string.IndexOf(string, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+            <Message Id="System.String.IndexOf(System.String,System.Int32)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="268">Because the behavior of 'string.IndexOf(string, int)' could vary based on the current user's locale settings, replace this call in 'WindowsSerialCSharp.getUIDVID(string)' with a call to 'string.IndexOf(string, int, StringComparison)'. If the result of 'string.IndexOf(string, int, StringComparison)' will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sendBinData(System.String,System.Byte[],System.Byte[])" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidStaticMembersInComVisibleTypes" Category="Microsoft.Interoperability" CheckId="CA1407" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="25" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="138">Consider whether the absence of 'WindowsSerialCSharp.sendBinData(string, byte[], byte[])' adversely impacts functionality for COM clients.</Issue>
+            </Message>
+            <Message Id="send" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="138">Correct the casing of 'send' in member name 'WindowsSerialCSharp.sendBinData(string, byte[], byte[])' by changing it to 'Send'.</Issue>
+            </Message>
+            <Message Id="1" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="144">In externally visible method 'WindowsSerialCSharp.sendBinData(string, byte[], byte[])', validate parameter 'data' before using it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sendData(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidStaticMembersInComVisibleTypes" Category="Microsoft.Interoperability" CheckId="CA1407" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="25" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="112">Consider whether the absence of 'WindowsSerialCSharp.sendData(string, string)' adversely impacts functionality for COM clients.</Issue>
+            </Message>
+            <Message Id="send" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="112">Correct the casing of 'send' in member name 'WindowsSerialCSharp.sendData(string, string)' by changing it to 'Send'.</Issue>
+            </Message>
+            <Message Id="1" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="119">In externally visible method 'WindowsSerialCSharp.sendData(string, string)', validate parameter 'data' before using it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sendDataToPort(System.String,System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="AvoidStaticMembersInComVisibleTypes" Category="Microsoft.Interoperability" CheckId="CA1407" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="NonBreaking">
+             <Issue Certainty="25" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="84">Consider whether the absence of 'WindowsSerialCSharp.sendDataToPort(string, string, string)' adversely impacts functionality for COM clients.</Issue>
+            </Message>
+            <Message Id="System.Console.Write(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="93">Method 'WindowsSerialCSharp.sendDataToPort(string, string, string)' passes a literal string as parameter 'value' of a call to 'Console.Write(string)'. Retrieve the following string(s) from a resource table instead: " 0x".</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="90">Method 'WindowsSerialCSharp.sendDataToPort(string, string, string)' passes a literal string as parameter 'value' of a call to 'Console.Write(string)'. Retrieve the following string(s) from a resource table instead: "WriteStart".</Issue>
+            </Message>
+            <Message Id="System.Console.WriteLine(System.String)" TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="96">Method 'WindowsSerialCSharp.sendDataToPort(string, string, string)' passes a literal string as parameter 'value' of a call to 'Console.WriteLine(string)'. Retrieve the following string(s) from a resource table instead: "WriteStop".</Issue>
+            </Message>
+            <Message Id="send" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="84">Correct the casing of 'send' in member name 'WindowsSerialCSharp.sendDataToPort(string, string, string)' by changing it to 'Send'.</Issue>
+            </Message>
+            <Message Id="WriteStart" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="90">Correct the spelling of the unrecognized token 'WriteStart' in the literal '"WriteStart"'.</Issue>
+            </Message>
+            <Message Id="WriteStop" TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="96">Correct the spelling of the unrecognized token 'WriteStop' in the literal '"WriteStop"'.</Issue>
+            </Message>
+            <Message Id="1" TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2016-09-05 11:33:42Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial" File="SerialDLLMain.cs" Line="86">In externally visible method 'WindowsSerialCSharp.sendDataToPort(string, string, string)', validate parameter 'data' before using it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+   <Name>Assemblies should have valid strong names</Name>
+   <Description>Either the assembly has no strong name, an invalid one, or the strong name is valid only because of the computer configuration. The assembly should not be deployed in this state. The most common causes of this are: 1) The assembly's contents were modified after it was signed. 2) The signing process failed. 3) The assembly was delay-signed. 4) A registry key existed that allowed the check to pass (where it would not have otherwise).</Description>
+   <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182127.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidStaticMembersInComVisibleTypes" Category="Microsoft.Interoperability" CheckId="CA1407">
+   <Name>Avoid static members in COM visible types</Name>
+   <Description>COM does not support static methods.</Description>
+   <Resolution Name="Default">Consider whether the absence of {0} adversely impacts functionality for COM clients.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182198.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="25">Warning</MessageLevel>
+   <File Name="interoperabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>Avoid uncalled private code</Name>
+   <Description>There is uncalled code that is not externally visible and is not a known runtime entry point. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182264.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+   <Name>Avoid uninstantiated internal classes</Name>
+   <Description>An internal class was detected that is apparently never instantiated. This rule does not attempt to detect late-bound creation and will generate false positives if instances of a type are only created in this way (for example, by means of Activator.CreateInstance or by passing the type as an argument to a TypeConverter constructor).</Description>
+   <Resolution Name="Default">{0} is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182265.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="ComVisibleTypesShouldBeCreatable" Category="Microsoft.Interoperability" CheckId="CA1409">
+   <Name>COM visible types should be creatable</Name>
+   <Description>Types with no public default constructor are not COM-creatable. COM does not support parameterized object construction. A type was detected with a public parameterized constructor but no public default constructor. This type is not creatable by COM. If there is an alternate method for creating and passing object instances to COM clients (through a method on another type, for example), this might not be a problem.</Description>
+   <Resolution Name="Default">Provide a public default constructor for {0} if it should be COM-creatable or mark the type as ComVisible(false).</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182203.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="interoperabilityrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050">
+   <Name>Declare types in namespaces</Name>
+   <Description>A type should be defined inside a namespace to avoid duplication.</Description>
+   <Resolution Name="Default">{0} should be declared inside a namespace.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182134.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Do not pass literals as localized parameters" Category="Microsoft.Globalization" CheckId="CA1303">
+   <Name>Do not pass literals as localized parameters</Name>
+   <Description>Literal strings that are embedded in source code are difficult to localize. Avoid passing literal strings as arguments in circumstances where a localized string is generally expected.</Description>
+   <Resolution Name="KnownValue">Method {0} passes a literal string as parameter '{1}' of a call to {2}. Retrieve the following string(s) from a resource table instead: {3}.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182187.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+   <Name>Do not expose generic lists</Name>
+   <Description>Do not expose List&lt;T&gt; in object models. Use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt; instead. List&lt;T&gt; is meant to be used from implementation, not in object model API. List&lt;T&gt; is optimized for performance at the cost of long term versioning. For example, if you return List&lt;T&gt; to the client code, you will not ever be able to receive notifications when client code modifies the collection.</Description>
+   <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182142.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>Identifiers should be cased correctly</Name>
+   <Description>Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</Description>
+   <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182240.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="namingrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Literals should be spelled correctly" Category="Microsoft.Naming" CheckId="CA2204">
+   <Name>Literals should be spelled correctly</Name>
+   <Description>This rule parses the literal string into words, tokenizing compound words, and checks the spelling of each word/token.</Description>
+   <Resolution Name="Default">Correct the spelling of the unrecognized token '{0}' in the literal '{1}'.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/bb264488.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824">
+   <Name>Mark assemblies with NeutralResourcesLanguageAttribute</Name>
+   <Description>The NeutralResourcesLanguage attribute informs the ResourceManager of the language used to render the neutral culture's resources for an assembly. When looking up resources in the same culture as the neutral resources language, the ResourceManager automatically uses the resources located in the main assembly, instead of searching for a satellite assembly with the current user interface culture for the current thread. This will improve lookup performance for the first resource you load and can reduce your working set.</Description>
+   <Resolution Name="Default">Because assembly {0} contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb385967.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+   <Name>Remove unused locals</Name>
+   <Description>Remove locals that are not used or are only assigned to in method implementations.</Description>
+   <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182278.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304">
+   <Name>Specify CultureInfo</Name>
+   <Description>If an overload exists that takes a CultureInfo argument, it should always be called in favor of an overload that does not. The CultureInfo type contains culture-specific information required for performing numeric and string operations, such as casing, formatting, and string comparisons. In scenarios where conversion and parsing behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify 'CultureInfo.InvariantCulture'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182189.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>Specify IFormatProvider</Name>
+   <Description>If an overload exists that takes an IFormatProvider argument, it should always be called in favor of an overload that does not. Some methods in the runtime convert a value to or from a string representation and take a string parameter that contains one or more characters, called format specifiers, which indicate how the value is to be converted. If the meaning of the format specifier varies by culture, a formatting object supplies the actual characters used in the string representation. In scenarios where sorting and comparison behavior should never change between cultures, specify CultureInfo.InvariantCulture, otherwise, specify CultureInfo.CurrentCulture.</Description>
+   <Resolution Name="IFormatProviderAlternateString">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, specify {3} as the 'IFormatProvider' parameter. Otherwise, if the result will be stored and accessed by software, such as when it is persisted to disk or to a database, specify {4}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+   <Name>Specify StringComparison</Name>
+   <Description>If an overload exists that takes a StringComparison argument, it should always be called in favor of an overload that does not.</Description>
+   <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386080.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+   <Name>Use properties where appropriate</Name>
+   <Description>Properties should be used instead of Get/Set methods in most situations. Methods are preferable to properties in the following situations: the operation is a conversion, is expensive or has an observable side-effect; the order of execution is important; calling the member twice in succession creates different results; a member is static but returns a mutable value; or the member returns an array.</Description>
+   <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182181.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+  <Rule TypeName="Validate arguments of public methods" Category="Microsoft.Design" CheckId="CA1062">
+   <Name>Validate arguments of public methods</Name>
+   <Description>All reference arguments passed to externally visible methods should be checked against null (Nothing in VB). If appropriate, throw a System.ArgumentNullException when the argument is null.</Description>
+   <Resolution Name="Default">In externally visible method {0}, validate parameter '{1}' before using it.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182182.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

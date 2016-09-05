@@ -6,3 +6,5 @@ C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\Windows
 C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\WindowsSerial32\Interop.MMC20.dll
 C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\WindowsSerial32\WindowsSerial.csproj.ResolveComReference.cache
 C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\WindowsSerial32\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\WindowsSerial32\WindowsSerial.dll.CodeAnalysisLog.xml
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\WindowsSerial32\WindowsSerial.dll.lastcodeanalysissucceeded

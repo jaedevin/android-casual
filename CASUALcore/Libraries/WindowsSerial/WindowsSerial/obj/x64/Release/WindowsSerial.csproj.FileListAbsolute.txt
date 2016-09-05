@@ -1,0 +1,12 @@
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Release\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Release\WindowsSerial.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\x64\Release\WindowsSerial.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\x64\Release\WindowsSerial.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Release\JavaTypeProvider.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Release\FSharp.Core.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Release\FSharp.Core.xml
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Release\WindowsSerial.dll.CodeAnalysisLog.xml
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\bin\x64\Release\WindowsSerial.dll.lastcodeanalysissucceeded
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\x64\Release\WindowsSerial.Properties.Resources.resources
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\x64\Release\WindowsSerial.csproj.GenerateResource.Cache
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\WindowsSerial\WindowsSerial\obj\x64\Release\WindowsSerial.csprojResolveAssemblyReference.cache
