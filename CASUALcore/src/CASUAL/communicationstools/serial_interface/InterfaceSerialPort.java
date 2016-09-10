@@ -10,7 +10,7 @@ package CASUAL.communicationstools.serial_interface;
  *
  * @author adamoutler
  */
-public interface InterfaceSerialPort extends com.sun.jna.Library {
+public interface InterfaceSerialPort {
     public String[] getComPorts();
     public boolean checkPortStatus(String port);
     public boolean sendDataToPort(String port, String data, String expectedValue);
