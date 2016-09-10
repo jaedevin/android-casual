@@ -33,6 +33,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
@@ -186,6 +188,7 @@ public class FileOperations {
     public void writeBytesToFile(String file, byte[] data) throws FileNotFoundException, IOException {
         FileOutputStream fos = new FileOutputStream(file);
         fos.write(data);
+        fos.close();
     }
 
     /**
@@ -197,15 +200,8 @@ public class FileOperations {
      * @throws IOException
      */
     public byte[] readBytesFromFile(String file) throws FileNotFoundException, IOException {
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        int buffer = 4096;
-        while (bis.available() > 0) {
-            buffer = (bis.available() > 4096 ? 4096 : bis.available());
-            baos.write(bis.read(new byte[buffer]));
-        }
-        bis.close();
-        return baos.toByteArray();
+               
+        return Files.readAllBytes(Paths.get(file));
     }
 
     /**
