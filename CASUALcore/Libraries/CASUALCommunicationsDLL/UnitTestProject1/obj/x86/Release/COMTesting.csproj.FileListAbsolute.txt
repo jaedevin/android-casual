@@ -1,0 +1,13 @@
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\COMTesting.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\COMTesting.pdb
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\CASUALCommunicationsDLL.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\Mono.Cecil.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\Mono.Cecil.Mdb.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\Mono.Cecil.Pdb.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\Mono.Cecil.Rocks.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\nunit.engine.api.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\nunit.engine.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Release\NUnit3.TestAdapter.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\obj\x86\Release\COMTesting.csprojResolveAssemblyReference.cache
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\obj\x86\Release\COMTesting.dll
+C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\obj\x86\Release\COMTesting.pdb
