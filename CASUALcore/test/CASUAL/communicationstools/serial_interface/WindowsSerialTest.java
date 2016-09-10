@@ -102,8 +102,8 @@ public class WindowsSerialTest {
     @Test
     public void testSendDataToPort() {
         System.out.println("sendDataToPort");
-        String port = SERIAL;
-        String data = "\r\rAT\r";
+        String port = MODEM;
+        String data = "\r\nAT\r\nAT\r\nAT\r\nAT\nAT\n";
         String expectedValue = "OK";
         WindowsSerial instance = new WindowsSerial();
         String expResult = "OK";
@@ -119,7 +119,7 @@ public class WindowsSerialTest {
     public void testSendData() {
         System.out.println("sendData");
         String port = MODEM;
-        String data = "\r\r\r\rAT\r";
+        String data = "\r\n\r\bAT\r\n";
         WindowsSerial instance = new WindowsSerial();
         String expResult = "OK";
         String result = instance.sendData(port, data);
@@ -169,7 +169,13 @@ public class WindowsSerialTest {
         String port =SERIAL;
         int expResult = 1;
         byte[] result = instance.sendBinData(port, data,expected);
-        
+        for (byte c: result){
+            System.out.print((char)c);
+        }
+        System.out.println();
+        for (byte c: result){
+            System.out.print((char)c + " "+ (int)c+ " ");
+        }
         assert( result.length>expResult);
 
     }

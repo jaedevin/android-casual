@@ -9,12 +9,15 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -29,6 +32,14 @@ public class FileOperationsTest {
     }
     @AfterClass
     public static void tearDownClass() {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 
     CASUALSessionData sd = CASUALSessionData.newInstance();
@@ -366,23 +377,39 @@ public class FileOperationsTest {
         sourceFile.delete();
     }
 
+   
+
     /**
-     * Test of moveFile method, of class FileOperations.
-     * @throws java.lang.Exception
+     * Test of writeBytesToFile method, of class FileOperations.
      */
     @Test
-    public void testMoveFile_String_String() throws Exception {
-        System.out.println("moveFile");
-        String sourceFile =sd.getTempFolder()+"newFile";
-        String destFile =sd.getTempFolder()+"newFile2";
-        new File(sourceFile).createNewFile();
+    public void testWriteBytesToFile() throws Exception {
+        System.out.println("writeBytesToFile");
+        File f=new File("myfile");
+        String path=f.getAbsolutePath();
+        byte[] data = new byte[]{100, 101};
         FileOperations instance = new FileOperations();
+        instance.writeBytesToFile(path, data);
+        byte[] output=instance.readBytesFromFile(path);
+        f.deleteOnExit();
+        assert(output[0]==data[0]);
+        assert(output[1]==data[1]);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of readBytesFromFile method, of class FileOperations.
+     */
+    @Test
+    public void testReadBytesFromFile() throws Exception {
+        System.out.println("readBytesFromFile");
+        String file = "";
+        FileOperations instance = new FileOperations();
+        byte[] expResult = null;
+        byte[] result = instance.readBytesFromFile(file);
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
         
-        boolean result = instance.moveFile(sourceFile, destFile);
-        assert(result);
-        assert(!new File(sourceFile).exists());
-        assert(new File(destFile).exists());
-        new File(sourceFile).delete();
-        new File(destFile).delete();
+        
     }
 }

@@ -12,11 +12,7 @@ import CASUAL.CASUALSessionData;
 import CASUAL.FileOperations;
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import jdk.nashorn.internal.objects.NativeString;
+
 
 /**
  *
@@ -30,9 +26,9 @@ public class WindowsSerial implements InterfaceSerialPort {
             
             String getComports();
             String getPortInfo(String port);
-            String sendDataToPort(String port, String data);
-            String sendData(String port, String data);
-            String sendBinData(String data);
+            String sendDataToPort( String data);  //passed on checkPortStatus   Failed to assert with \r\r\at\r\r\r
+            String sendData(String data);
+            String sendBinData(String data);  //failed on sendBinData  Failed on main
             
    }
     
@@ -81,6 +77,7 @@ public class WindowsSerial implements InterfaceSerialPort {
                 windows = (InterfaceWindowsSerialPort) Native.loadLibrary("/CASUAL/communicationstools/serial_interface/resources/CASUALCommunicationsDLL86.dll", InterfaceWindowsSerialPort.class);
             }
         }
+        Log.level4Debug("loaded module");
     }
     
     public String getPortInfo(String port){
@@ -94,6 +91,7 @@ public class WindowsSerial implements InterfaceSerialPort {
             String expectedFile=File.createTempFile("aaaa", "").getAbsolutePath();
             fo.writeBytesToFile(dataFile,data);
             fo.writeBytesToFile(expectedFile, expectation);
+            
             String returnfile=windows.sendBinData(port+ splitString[0]+dataFile+splitString[0]+expectedFile);
             return fo.readBytesFromFile(returnfile);
 
@@ -114,13 +112,14 @@ public class WindowsSerial implements InterfaceSerialPort {
 
     @Override
     public boolean sendDataToPort(String port, String data, String expectedValue) {
-        final boolean retval= windows.sendDataToPort(port, data+splitString[0]+ expectedValue).contains("true");
+        String s=windows.sendDataToPort(port+splitString[0]+ "\r\nAT\r\nAT\r\n"+splitString[0]+expectedValue);
+        final boolean retval= windows.sendDataToPort(port+ splitString[0] + data+splitString[0]+ expectedValue).contains("true");
         return retval;
     }
 
     @Override
     public String sendData(String port, String data) {
-        return windows.sendData(port, data);
+        return windows.sendData(port+ splitString[0] + data);
     }
 
 }
