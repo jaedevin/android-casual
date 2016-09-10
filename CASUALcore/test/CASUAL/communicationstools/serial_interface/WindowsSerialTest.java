@@ -31,26 +31,27 @@ import static org.junit.Assume.assumeTrue;
  * @author adamo
  */
 public class WindowsSerialTest {
-    
-    final static String MODEM="COM6:";
-    final static String SERIAL="COM5:";
-    CASUALTools ct=new CASUALTools();
+
+    final static String MODEM = "COM6:";
+    final static String SERIAL = "COM5:";
+    CASUALTools ct = new CASUALTools();
+
     public WindowsSerialTest() {
-       assumeTrue(!java.awt.GraphicsEnvironment.isHeadless());
+        assumeTrue(!java.awt.GraphicsEnvironment.isHeadless());
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -74,12 +75,12 @@ public class WindowsSerialTest {
         System.out.println("getComPorts");
         WindowsSerial instance = new WindowsSerial();
         String[] results = instance.getComPorts();
-        assert(results.length>0);
-        for (String result:results){
-            Log.level3Verbose("Found Com Port: "+result);
+        assert (results.length > 0);
+        for (String result : results) {
+            Log.level3Verbose("Found Com Port: " + result);
             Log.level3Verbose(instance.getPortInfo(result));
         }
-        
+
     }
 
     /**
@@ -108,7 +109,7 @@ public class WindowsSerialTest {
         WindowsSerial instance = new WindowsSerial();
         String expResult = "OK";
         final boolean result = instance.sendDataToPort(port, data, expectedValue);
-        assert( result);
+        assert (result);
 
     }
 
@@ -123,8 +124,7 @@ public class WindowsSerialTest {
         WindowsSerial instance = new WindowsSerial();
         String expResult = "OK";
         String result = instance.sendData(port, data);
-        assert( result.contains(expResult));
-        
+        assert (result.contains(expResult));
 
     }
 
@@ -137,9 +137,9 @@ public class WindowsSerialTest {
         WindowsSerial instance = new WindowsSerial();
         int expResult = 0;
         String[] result = instance.getComPorts();
-        assert( result.length>expResult);
+        assert (result.length > expResult);
         // TODO review the generated test code and remove the default call to fail.
-    
+
     }
 
     /**
@@ -148,11 +148,11 @@ public class WindowsSerialTest {
     @Test
     public void testGetPortInfo() {
         System.out.println("getPortInfo");
-        
+
         WindowsSerial instance = new WindowsSerial();
         String[] ports = instance.getComPorts();
-        for (String port : ports){
-            assert(instance.getPortInfo(port).length()>0);
+        for (String port : ports) {
+            assert (instance.getPortInfo(port).length() > 0);
         }
     }
 
@@ -162,22 +162,20 @@ public class WindowsSerialTest {
     @Test
     public void testSendBinData() {
         System.out.println("sendBinData");
-        
-        byte[] data = new byte[] { (byte)0x7e, (byte)0x00, (byte)0x78, (byte)0xf0, (byte)0x7e };
-        byte[] expected=new byte[]{ 0x7e };
+        String port = SERIAL;
+        byte[] data = new byte[]{(byte) 0x7e, (byte) 0x00, (byte) 0x78, (byte) 0xf0, (byte) 0x7e};
+        byte[] expected = new byte[]{0x7e};
         WindowsSerial instance = new WindowsSerial();
-        String port =SERIAL;
-        int expResult = 1;
-        byte[] result = instance.sendBinData(port, data,expected);
-        for (byte c: result){
-            System.out.print((char)c);
+        byte[] result = instance.sendBinaryData(port, data, expected);
+        for (byte c : result) {
+            System.out.print((char) c);
         }
         System.out.println();
-        for (byte c: result){
-            System.out.print((char)c + " "+ (int)c+ " ");
+        for (byte c : result) {
+            System.out.print((char) c + " " + (int) c + " ");
         }
-        assert( result.length>expResult);
+        assert (result.length > 10);
 
     }
-    
+
 }

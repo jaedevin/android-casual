@@ -121,7 +121,20 @@ public class PosixSerialConnectivity {
     public synchronized boolean sendCommandToSerial(String port, String data, String expectedValue) throws IOException, FileNotFoundException, InterruptedException {
         return sendCommandToSerial(port, data).contains(expectedValue);
     }
-
+    
+    
+    public synchronized byte[] sendCommandToSerial(String port, byte[] data, byte[] expected) throws IOException, FileNotFoundException, InterruptedException {
+        try {
+            throw new Exception("not yet supported");
+            //return new byte[]{};
+        } catch (Exception ex) {
+            Logger.getLogger(PosixSerialConnectivity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return new byte[]{};
+    }
+    
+    
+    
     public synchronized boolean verifyConnectivity(String port) throws IOException, FileNotFoundException, InterruptedException {
         String returnvalue = writeData(port, "AT\n");
         return returnvalue.contains("OK");

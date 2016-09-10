@@ -200,7 +200,7 @@ public class FileOperations {
      * @throws IOException
      */
     public byte[] readBytesFromFile(String file) throws FileNotFoundException, IOException {
-               
+
         return Files.readAllBytes(Paths.get(file));
     }
 

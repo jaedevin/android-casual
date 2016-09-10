@@ -403,12 +403,7 @@ public class FileOperationsTest {
     @Test
     public void testReadBytesFromFile() throws Exception {
         System.out.println("readBytesFromFile");
-        String file = "";
-        FileOperations instance = new FileOperations();
-        byte[] expResult = null;
-        byte[] result = instance.readBytesFromFile(file);
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        testWriteBytesToFile();
         
         
     }

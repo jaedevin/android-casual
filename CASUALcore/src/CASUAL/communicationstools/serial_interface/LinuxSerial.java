@@ -3,29 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package CASUAL.communicationstools.serial_interface;
 
-
+import CASUAL.Log;
 import CASUAL.communicationstools.serial_interface.posix.FileFilter;
 import CASUAL.communicationstools.serial_interface.posix.PosixSerialConnectivity;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author adamoutler
  */
 public class LinuxSerial implements InterfaceSerialPort {
-    String pathname="/dev/";
-    String fileContains="ttyUSB";
+
+    String pathname = "/dev/";
+    String fileContains = "ttyUSB";
+
     @Override
     public String[] getComPorts() {
-        String[] ports=new FileFilter().selectFilesInPathBasedOnName(pathname, fileContains);
-        for (int i=0;  i<ports.length; i++){
-            if (!ports[i].startsWith(pathname)){
-                ports[i]=pathname+ports[i];
+        String[] ports = new FileFilter().selectFilesInPathBasedOnName(pathname, fileContains);
+        for (int i = 0; i < ports.length; i++) {
+            if (!ports[i].startsWith(pathname)) {
+                ports[i] = pathname + ports[i];
             }
         }
         return ports;
@@ -36,17 +35,18 @@ public class LinuxSerial implements InterfaceSerialPort {
         try {
             return new PosixSerialConnectivity().verifyConnectivity(port);
         } catch (IOException | InterruptedException ex) {
-            Logger.getLogger(LinuxSerial.class.getName()).log(Level.SEVERE, null, ex);
+            Log.errorHandler(ex);
+
         }
         return false;
     }
 
     @Override
-    public boolean sendDataToPort(String port, String data, String expectedValue)  {
+    public boolean sendDataToPort(String port, String data, String expectedValue) {
         try {
             return (new PosixSerialConnectivity().sendCommandToSerial(port, data).contains(expectedValue));
         } catch (IOException | InterruptedException ex) {
-            Logger.getLogger(LinuxSerial.class.getName()).log(Level.SEVERE, null, ex);
+            Log.errorHandler(ex);
         }
         return false;
     }
@@ -54,13 +54,18 @@ public class LinuxSerial implements InterfaceSerialPort {
     @Override
     public String sendData(String port, String data) {
         try {
-            String s=new PosixSerialConnectivity().sendCommandToSerial(port, data);
+            String s = new PosixSerialConnectivity().sendCommandToSerial(port, data);
             return s;
         } catch (IOException | InterruptedException ex) {
-            Logger.getLogger(LinuxSerial.class.getName()).log(Level.SEVERE, null, ex);
+            Log.errorHandler(ex);
         }
         return null;
     }
 
-    
+    @Override
+    public byte[] sendBinaryData(String port, byte[] data, byte[] expectedValue) {
+        throw new UnsupportedOperationException("Linux binary in Windows Serial is not yet supported");
+
+    }
+
 }

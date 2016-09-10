@@ -6,20 +6,42 @@
 package CASUAL.communicationstools.serial_interface;
 
 import CASUAL.OSTools;
+import CASUAL.language.Command;
+import java.util.Arrays;
+import org.junit.After;
+import org.junit.AfterClass;
+import static org.junit.Assume.assumeTrue;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
  *
  * @author adamoutler
  */
-public class SerialInterfaceIT {
+public class SerialInterfaceTest {
 
-    public SerialInterfaceIT() {
+    final public static String MODEM = "COM6:";
+    final public static String SERIAL = "COM5:";
+
+    public SerialInterfaceTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
 
     @Before
     public void setUp() {
+        assumeTrue(!java.awt.GraphicsEnvironment.isHeadless());
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 
     /**
@@ -34,10 +56,10 @@ public class SerialInterfaceIT {
         assert (expResult != result);
         String classname = result.getClass().toString();
         if (OSTools.isLinux()) {
-            assert (classname.equals("class com.imeidocbox.serial_interface.LinuxSerial"));
+            assert (classname.equals("class CASUAL.communicationstools.serial_interface.LinuxSerial"));
         }
         if (OSTools.isWindows()) {
-            assert (classname.equals("class com.imeidocbox.serial_interface.WindowsSerial"));
+            assert (classname.equals("class CASUAL.communicationstools.serial_interface.WindowsSerial"));
         }
 
     }
@@ -66,11 +88,10 @@ public class SerialInterfaceIT {
     public void testCheckPortStatus() {
         System.out.println("checkPortStatus");
         SerialInterface instance = new SerialInterface();
-        String port = instance.getComPorts()[0];
-        boolean result = instance.checkPortStatus(port);
+        boolean result = instance.checkPortStatus(MODEM);
         assert (result);
-        for (int i = 0; i < 500; i++) {
-            result = instance.checkPortStatus(port);
+        for (int i = 0; i < 3; i++) {
+            result = instance.checkPortStatus(MODEM);
             assert (result);
         }
         // TODO review the generated test code and remove the default call to fail.
@@ -84,8 +105,8 @@ public class SerialInterfaceIT {
     public void testSendDataToPort() {
         System.out.println("sendDataToPort");
         SerialInterface instance = new SerialInterface();
-        String port = instance.getComPorts()[0];
-        String data = "AT\n";
+        String port = MODEM;
+        String data = "\rAT\r\r";
         String expectedValue = "OK";
 
         boolean result = instance.sendDataToPort(port, data, expectedValue);
@@ -104,13 +125,30 @@ public class SerialInterfaceIT {
     public void testSendData() {
         System.out.println("sendData");
         SerialInterface instance = new SerialInterface();
-        String port = instance.getComPorts()[0];
-        String data = "AT+IMEITEST=1,0\n";
-        for (int i = 0; i < 400; i++) {
-            String result = instance.sendData(port, data);
+        String port = MODEM;
+        String data = "\rAT\r";
+        for (int i = 0; i < 3; i++) {
+            String result = instance.sendData(MODEM, data);
             System.out.println(result);
-            assert (result.length() > 30);
+            assert (result.length() > 2);
         }
+    }
+
+    /**
+     * Test of sendBinaryData method, of class SerialInterface.
+     */
+    @Test
+    public void testSendBinaryData() {
+        System.out.println("sendBinaryData");
+        String port = SERIAL; //this is "COM5:"
+        byte[] data = SerialInterface.hexStringToByteArray("7e 00 78 f0 7e");
+        byte[] expected = new byte[]{0x7e};
+        byte[] result = new SerialInterface().sendBinaryData(port, data, expected);
+        for (byte b : result) {
+            System.out.print((char) b);
+        }
+        System.out.println();
+        assert (result.length > 20);
     }
 
 }
