@@ -209,18 +209,19 @@ namespace CASUALSerialCommunications
 
                 if (comPort.Name.Equals(port))
                 {
-                    return (string.Format("{0} – {1}", comPort.Name, comPort.Description + validatePort(port)));
+                   
+                        return (string.Format("{0} - {1}\n {2} - {3}\n {4}", comPort.Name, comPort.Description, comPort.Manufacturer, comPort.PNPClass, comPort.DeviceID));
                 }
             }
 
-            return validatePort(port);
+            return searchForPortInfo(port);
 
 
         }
 
 
 
-        static string validatePort(String port)
+        static string searchForPortInfo(String port)
         {
             String query = "SELECT * FROM Win32_PnPEntity WHERE Name LIKE ' " + port.Replace(":", "") + "'";
             using (var searcher = new ManagementObjectSearcher(query))
@@ -455,7 +456,9 @@ public class ComportInfo
 {
     public string Name { get; set; }
     public string Description { get; set; }
-
+    public string DeviceID { get; set; }
+    public string Manufacturer { get; set; }
+    public string PNPClass { get; set; }
     public ComportInfo() { }
 
     public static List<ComportInfo> GetCOMPortsInfo()
@@ -476,14 +479,23 @@ public class ComportInfo
                 if (obj != null)
                 {
                     object captionObj = obj["Caption"];
+                    
                     if (captionObj != null)
                     {
                         caption = captionObj.ToString();
                         if (caption.Contains("(COM"))
                         {
                             ComportInfo comPortInfo = new ComportInfo();
+                            object devid = obj["DeviceID"];
+                            object mfg = obj["Manufacturer"];
+                            object pnpclass= obj["PNPClass"]; 
+
+
                             comPortInfo.Name = caption.Substring(caption.LastIndexOf("(COM")).Replace("(", string.Empty).Replace(")", string.Empty);
                             comPortInfo.Description = caption;
+                            comPortInfo.DeviceID = devid.ToString();
+                            comPortInfo.Manufacturer = mfg.ToString();
+                            comPortInfo.PNPClass = pnpclass.ToString();
                             ComPortInfoList.Add(comPortInfo);
                         }
                         if (caption.ToLower().Contains("modem"))
