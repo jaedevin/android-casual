@@ -16,7 +16,6 @@
  */
 package CASUAL.communicationstools.serial_interface;
 
-import CASUAL.language.Command;
 import CASUAL.Log;
 import CASUAL.OSTools;
 

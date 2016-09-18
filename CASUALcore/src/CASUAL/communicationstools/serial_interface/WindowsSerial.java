@@ -22,10 +22,10 @@ import CASUAL.OSTools;
 import CASUAL.CASUALSessionData;
 import CASUAL.FileOperations;
 import CASUAL.ResourceDeployer;
+import com.sun.jna.NativeLibrary;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -47,7 +47,7 @@ public class WindowsSerial implements InterfaceSerialPort {
 
     }
 
-    InterfaceWindowsSerialPort windows;
+    private static InterfaceWindowsSerialPort windows;
     static String[] splitString = {"-=-=-=-=-=-=-=-=-"};
 
     public static void main(String[] args) {
@@ -81,21 +81,29 @@ public class WindowsSerial implements InterfaceSerialPort {
         File f = new File(CASUALSessionData.getWindowsDLL());
         if (OSTools.isWindows()) {
 
-            try {
-                File dat = File.createTempFile("CASUALCommunications", ".dll");
-                dat.deleteOnExit();
-                if (OSTools.isWindows64Arch()) {
-                    new ResourceDeployer().copyFromResourceToFile("/CASUAL/communicationstools/serial_interface/resources/CASUALCommunicationsDLL64.dll", dat.getAbsolutePath());
-                } else {
-                    new ResourceDeployer().copyFromResourceToFile("/CASUAL/communicationstools/serial_interface/resources/CASUALCommunicationsDLL86.dll", dat.getAbsolutePath());
-                }
-                windows = (InterfaceWindowsSerialPort) Native.loadLibrary(dat.getAbsolutePath(), InterfaceWindowsSerialPort.class);
-            } catch (IOException ex) {
-                Log.errorHandler(ex);
-            }
+            deployWindowsBinary();
 
         }
         Log.level4Debug("loaded module");
+    }
+
+    private void deployWindowsBinary() {
+        try {
+            File dat = File.createTempFile("CASUALCommunications", ".dll");
+            dat.deleteOnExit();
+            if (OSTools.isWindows64Arch()) {
+                new ResourceDeployer().copyFromResourceToFile("/CASUAL/communicationstools/serial_interface/resources/CASUALCommunicationsDLL64.dll", dat.getAbsolutePath());
+            } else {
+                new ResourceDeployer().copyFromResourceToFile("/CASUAL/communicationstools/serial_interface/resources/CASUALCommunicationsDLL86.dll", dat.getAbsolutePath());
+            }
+            NativeLibrary.addSearchPath(dat.getName(), dat.getPath());
+            System.setProperty("jna.library.path", dat.getAbsolutePath());
+            System.setProperty("jna.library.path", dat.getParent());
+            windows = (InterfaceWindowsSerialPort) Native.loadLibrary(dat.getAbsolutePath(), InterfaceWindowsSerialPort.class);
+            
+        } catch (IOException ex) {
+            Log.errorHandler(ex);
+        }
     }
 
     public String getPortInfo(String port) {
