@@ -93,7 +93,7 @@
   <Import Project="../packages/UnmanagedExports.1.2.7/tools/RGiesecke.DllExport.targets" Condition="Exists('../packages/UnmanagedExports.1.2.7/tools/RGiesecke.DllExport.targets')" />
   <PropertyGroup>
     <PostBuildEvent>copy $(ProjectDir)bin\x64\Debug\CASUALCommunicationsDLL.dll $(ProjectDir)..\..\..\src\CASUAL\communicationstools\serial_interface\resources\CASUALCommunicationsDLL64.dll
-copy $(ProjectDir)bin\x86\Release\CASUALCommunicationsDLL.dll $(ProjectDir)..\..\..\src\CASUAL\communicationstools\serial_interface\resources\CASUALCommunicationsDLL86.dll
+copy $(ProjectDir)bin\x86\Debug\CASUALCommunicationsDLL.dll $(ProjectDir)..\..\..\src\CASUAL\communicationstools\serial_interface\resources\CASUALCommunicationsDLL86.dll
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

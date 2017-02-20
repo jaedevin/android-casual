@@ -9,8 +9,8 @@ namespace ComTesting
     [TestClass]
     public class ComTesting
     {
-        const int SERIAL = 1;
-        const int OTHER = 2;
+        const int SERIAL = 2;
+        const int OTHER = 1;
 
         static String[] splitString = SerialCommunications.splitString;
         [TestMethod]
@@ -75,7 +75,7 @@ namespace ComTesting
                 }
 
                 reportTime(stopwatch);
-                Assert.IsTrue(dataReceived.Length > 1);
+                Assert.IsTrue(bytes.Length > 1);
             }
             
 
