@@ -32,8 +32,8 @@ import org.junit.Test;
  */
 public class SerialInterfaceTest {
 
-    final public static String MODEM = "COM6:";
-    final public static String SERIAL = "COM5:";
+    final public static String MODEM = "COM4:";
+    final public static String SERIAL = "COM3:";
 
     public SerialInterfaceTest() {
     }
