@@ -27,7 +27,6 @@ import CASUAL.crypto.AES128Handler;
 import CASUAL.crypto.MD5sum;
 import CASUAL.misc.MandatoryThread;
 import CASUAL.misc.StringOperations;
-import CASUAL.network.CASUALDevIntegration.CasualDevCounter;
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -288,7 +287,6 @@ public final class Caspac {
      * @return Active Script
      */
     public synchronized Script setActiveScript(Script s) {
-        CasualDevCounter.doIncrementCounter(s.getName() + s.getMetaData().getUniqueIdentifier());
         CASUALStartupTasks.caspacScriptPrepLock = true;
         if (type == 1) {  //CASUAL checks for updates
             try {

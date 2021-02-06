@@ -51,7 +51,6 @@ public class JOdinMain extends Application {
 
         stage.setTitle("JODIN3      powered by Heimdall and CASUAL");
         stage.setResizable(false);
-        CASUAL.network.CASUALDevIntegration.CasualDevCounter.doIncrementCounter("JODIN3CASUALwoot");
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {

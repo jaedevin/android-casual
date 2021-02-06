@@ -52,8 +52,6 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -160,8 +158,6 @@ public class JOdinController implements Initializable, CASUAL.iCASUALUI {
     Button showLegal;
 
     @FXML
-    WebView ad;
-    @FXML
     Label browserMode;
 
     @Override
@@ -183,21 +179,6 @@ public class JOdinController implements Initializable, CASUAL.iCASUALUI {
             }
         });
         t.start();
-        initializeAd();
-    }
-
-    @FXML
-    private void installDriverButton() {
-        Thread t = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                boolean x = new HeimdallTools().installDriver();
-                new CASUALMessageObject("All Done>>>All done.\n\nReport: " + (x == true ? "Sucessful!" : "No Changes") + "\n\nIf you continue to have problems," + (OSTools.isMac() ? " ensure you have removed Samsung Kies from your computer.  You should also" : "") + " reboot the device and the computer. ").showInformationMessage();
-            }
-        });
-        t.start();
-
     }
 
     File initialDir = new File(System.getProperty("user.dir"));
@@ -887,49 +868,6 @@ public class JOdinController implements Initializable, CASUAL.iCASUALUI {
             }
         });
     }
-
-    @FXML
-    private void webviewHover() {
-        if (!clicked) {
-            return;
-        }
-        ad.setMaxHeight(mainSurface.getHeight());
-        ad.setMinHeight(mainSurface.getHeight());
-        ad.setTranslateY((-mainSurface.getHeight()) + 90);
-        browserMode.setVisible(true);
-    }
-
-    @FXML
-    private void webViewLeave() {
-        ad.setTranslateY(0);
-        ad.setMaxHeight(90);
-        ad.setMinHeight(90);
-        browserMode.setVisible(false);
-    }
-
-    private boolean clicked = false;
-
-    @FXML
-    private void webViewClicked() {
-        clicked = true;
-        WebEngine webEngine = ad.getEngine();
-        webEngine.setJavaScriptEnabled(false); //javascript runs slowly and causes problems. no scripts allowed. 
-
-        webviewHover();
-    }
-
-    private void initializeAd() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                WebEngine webEngine = ad.getEngine();
-                webEngine.setJavaScriptEnabled(true);
-                webEngine.load("https://builds.casual-dev.com/ad.php");
-            }
-        });
-
-    }
-
 
     @Override
     public void setUserMainMessage(String string) {

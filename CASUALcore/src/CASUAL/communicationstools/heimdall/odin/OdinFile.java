@@ -34,7 +34,6 @@ import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 
-import net.jpountz.lz4.LZ4Factory;
 import net.jpountz.lz4.LZ4FrameInputStream;
 
 /**
@@ -133,7 +132,6 @@ public class OdinFile {
             return files.toArray(new File[files.size()]);
         }
         files = new ArrayList<File>();
-        LZ4Factory factory = LZ4Factory.fastestInstance();
         TarArchiveEntry entry;
         //parse the entries
         while ((entry = (TarArchiveEntry) tarStream.getNextEntry()) != null) {
