@@ -6,5 +6,5 @@
  *@author AdamOutler adamoutler@casual-dev.com
  *\copyright GPLv3
  */
-package CASUAL.communicationstools.adb.twrp;
+package CASUAL.communicationstools.adb.twrprecovery;
 
