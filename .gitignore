@@ -1,8 +1,2 @@
-.svn
-.private
-private
-dist
-build
-wiki
-
 .DS_Store
+dist/JOdin3CASUAL-incl-JavaFX/**
