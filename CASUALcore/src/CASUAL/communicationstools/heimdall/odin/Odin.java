@@ -18,6 +18,8 @@ package CASUAL.communicationstools.heimdall.odin;
 
 
 import CASUAL.archiving.libpit.PitData;
+import CASUAL.archiving.libpit.PitEntry;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -63,7 +65,11 @@ public class Odin {
         //create list of --PARTITION filename for Heimdall
         ArrayList<String> list = new ArrayList<String>();
         for (File f:set){
-            String partname=pit.findEntryByFilename(f.getName()).getPartitionName();
+            PitEntry entry= pit.findEntryByFilename(f.getName());
+            if (entry == null) {
+                throw new UnsupportedOperationException("Could not find partiton for file: " + f.getName());
+            }
+            String partname=entry.getPartitionName();
             list.add("--"+partname);
             list.add(f.getAbsolutePath());
         }
