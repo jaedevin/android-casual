@@ -1,7 +1,0 @@
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\bin\x86\Debug\CASUALCommunicationsDLL.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\bin\x86\Debug\CASUALCommunicationsDLL.pdb
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\bin\x86\Debug\CASUALCommunicationsDLL.dll.CodeAnalysisLog.xml
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\bin\x86\Debug\CASUALCommunicationsDLL.dll.lastcodeanalysissucceeded
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\bin\x86\Debug\System.Xml.Linq.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\obj\x86\Debug\CASUALCommunicationsDLL.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\obj\x86\Debug\CASUALCommunicationsDLL.pdb

@@ -1,9 +1,0 @@
-﻿1>------ Rebuild All started: Project: CASUALCommunicationsDLL, Configuration: Debug x86 ------
-1>  CASUALCommunicationsDLL -> C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\CASUALCommunicationsDLL\bin\x86\Debug\CASUALCommunicationsDLL.dll
-1>  Running Code Analysis...
-1>  Code Analysis Complete -- 0 error(s), 0 warning(s)
-1>          1 file(s) copied.
-1>          1 file(s) copied.
-2>------ Rebuild All started: Project: COMTesting, Configuration: Debug x86 ------
-2>  COMTesting -> C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\x86\Debug\COMTesting.dll
-========== Rebuild All: 2 succeeded, 0 failed, 0 skipped ==========

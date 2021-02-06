@@ -1,9 +1,0 @@
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\Release\COMTesting.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\Release\COMTesting.pdb
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\Release\CASUALCommunicationsDLL.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\Release\nunit.framework.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\bin\Release\nunit.framework.xml
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\obj\Release\COMTesting.csprojResolveAssemblyReference.cache
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\obj\Release\COMTesting.dll
-C:\Users\adamo\Desktop\android-casual\CASUALcore\Libraries\CASUALCommunicationsDLL\UnitTestProject1\obj\Release\COMTesting.pdb
