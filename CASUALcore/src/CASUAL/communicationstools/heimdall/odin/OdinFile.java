@@ -28,10 +28,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.zip.GZIPInputStream;
+
 import org.apache.commons.compress.archivers.ArchiveException;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
+
+import net.jpountz.lz4.LZ4Factory;
+import net.jpountz.lz4.LZ4FrameInputStream;
 
 /**
  * Opens odin files and performs consistancy checks
@@ -129,10 +133,12 @@ public class OdinFile {
             return files.toArray(new File[files.size()]);
         }
         files = new ArrayList<File>();
+        LZ4Factory factory = LZ4Factory.fastestInstance();
         TarArchiveEntry entry;
         //parse the entries
         while ((entry = (TarArchiveEntry) tarStream.getNextEntry()) != null) {
-            final File outputFile = new File(outputDir, entry.getName());
+            boolean lz4 = entry.getName().endsWith(".lz4");
+            final File outputFile = new File(outputDir, entry.getName().substring(0, lz4 ? entry.getName().length() - 4 : entry.getName().length() ));
             //make folders
             if (entry.isDirectory()) {
                 if (!outputFile.exists()) {
@@ -142,18 +148,24 @@ public class OdinFile {
                     }
                 }
                 //create files
-            } else {
+            } else if (!entry.getName().endsWith("fota.zip") && !entry.getName().endsWith(".pit")) {
                 final OutputStream outputFileStream = new FileOutputStream(outputFile);
                 System.out.println("decompressing file:" + outputFile.getCanonicalFile());
-                byte[] buffer = new byte[1024 * 1024];
-                int len;
-                while ((len = tarStream.read(buffer)) >= 0) {
-                    outputFileStream.write(buffer, 0, len);
+                if (lz4) {
+                    LZ4FrameInputStream inStream = new LZ4FrameInputStream(tarStream);
+                    inStream.transferTo(outputFileStream);
+                    outputFileStream.close();
+                } else {
+                    byte[] buffer = new byte[1024 * 1024];
+                    int len;
+                    while ((len = tarStream.read(buffer)) >= 0) {
+                        outputFileStream.write(buffer, 0, len);
+                    }
+                    outputFileStream.close();
                 }
-                outputFileStream.close();
+                // add files to output array
+                files.add(outputFile);
             }
-            //add files to output array
-            files.add(outputFile);
         }
         return files.toArray(new File[files.size()]);
     }
@@ -179,15 +191,23 @@ public class OdinFile {
             }
             digest.update(buffer);
         }
+        byte[] remainingBuffer = new byte[512];
+        int index = 0;
         //last block will be MD5sum in Odin tar.gz format
         for (byte b : buffer) {
-            //only read until end of MD5
-            if (b == 0xff) {
-                break;
+            // look for valid MD5
+            if (b == 0xff || b == 0x0a) {
+                if (expectedMd5.split("  ").length == 2) {
+                    break;
+                } else {
+                    expectedMd5 = "";
+                }
+            } else {
+                expectedMd5 += (char) b;
             }
-            expectedMd5 += (char) b;
+            remainingBuffer[index++] = b;
         }
-
+        digest.update(buffer, 0, index - expectedMd5.length());
         //Create actual MD5sum from messageDigest
         byte[] md5sum = digest.digest();
         BigInteger bigInt = new BigInteger(1, md5sum);
