@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>CASUALcore</groupId>
+	<artifactId>CASUALcore</artifactId>
+	<version>0.9.0</version>
+	<packaging>jar</packaging>
+
+	<name>CASUALcore</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>11</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.20</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.lz4/lz4-java -->
+		<dependency>
+			<groupId>org.lz4</groupId>
+			<artifactId>lz4-java</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>5.6.0</version>
+		</dependency>
+	</dependencies>
+</project>
