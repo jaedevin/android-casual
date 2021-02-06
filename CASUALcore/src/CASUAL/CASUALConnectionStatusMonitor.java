@@ -169,8 +169,7 @@ public class CASUALConnectionStatusMonitor {
                 case 0:
                     Log.level4Debug("Device disconnected commanded");
                     sd.setStatus("Device Removed");
-                    switched =CASUALSessionData.getGUI().setControlStatus(false,0,getConnectionMethodName());
-
+                    switched =! CASUALSessionData.getGUI().setControlStatus(false,0,getConnectionMethodName());
                     break;
                 case 1:
                     sd.setStatus("Device Connected");
@@ -183,18 +182,14 @@ public class CASUALConnectionStatusMonitor {
                         Log.level0Error("@stateMultipleDevices");
                         Log.level0Error("Remove " + (state - 1) + " device to continue.");
                     }
-
                     switched =! CASUALSessionData.getGUI().setControlStatus(false,state,getConnectionMethodName());
                     Log.level4Debug("State Multiple Devices Number of devices" + state);
-
                     break;
-
             }
             if (switched){ //only set last state if controls were enabled/disabled when requested
                 LastState = state;
             } else {
                 Log.level4Debug("UI did not respond to state change, retrying.");
-
             }
         }
     }
